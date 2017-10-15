@@ -28,6 +28,6 @@ public class Grid implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "grid")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "grid")
     private List<User> users;
 }

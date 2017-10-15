@@ -11,9 +11,9 @@ import java.io.Serializable;
  * @since 12.10.17
  */
 
-@Entity
 @Getter
 @Setter
+@Entity
 @Table(name = "user")
 public class User implements Serializable {
 
@@ -30,7 +30,7 @@ public class User implements Serializable {
     @Column(name = "surname")
     private String surname;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grid_id")
     private Grid grid;
 }
