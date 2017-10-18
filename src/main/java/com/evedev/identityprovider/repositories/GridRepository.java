@@ -1,6 +1,6 @@
 package com.evedev.identityprovider.repositories;
 
-import com.evedev.identityprovider.model.Grid;
+import com.evedev.identityprovider.models.Grid;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;

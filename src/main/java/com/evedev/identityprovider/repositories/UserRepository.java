@@ -1,6 +1,6 @@
 package com.evedev.identityprovider.repositories;
 
-import com.evedev.identityprovider.model.User;
+import com.evedev.identityprovider.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

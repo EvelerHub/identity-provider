@@ -1,7 +1,8 @@
-package com.evedev.identityprovider.model;
+package com.evedev.identityprovider.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,9 +12,9 @@ import java.util.List;
  * @author Alexander Eveler, alexander.eveler@gmail.com
  * @since 15.10.17
  */
-
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "grid")
 public class Grid implements Serializable {

@@ -1,7 +1,8 @@
-package com.evedev.identityprovider.model;
+package com.evedev.identityprovider.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,9 +11,9 @@ import java.io.Serializable;
  * @author Alexander Eveler, alexander.eveler@gmail.com
  * @since 12.10.17
  */
-
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
