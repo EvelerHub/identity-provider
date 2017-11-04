@@ -3,11 +3,14 @@ package com.evedev.identityprovider.repositories.handlers;
 import com.evedev.identityprovider.models.group_scheme.User;
 import com.evedev.identityprovider.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author Alexander Eveler, alexander.eveler@gmail.com
@@ -22,6 +25,11 @@ public class UserEventHandler {
 
     @Autowired
     private UserRepository userRepository;
+
+    @PostConstruct
+    private void init(){
+        System.out.println("UserEventHandler#init ==> started");
+    }
 
     @HandleBeforeCreate
     public void handleUserCreate(User user) {

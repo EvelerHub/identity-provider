@@ -1,4 +1,4 @@
-# identity_provider
+# identity-provider
 Spring Security training project.
 Will be included following tricks: 
 * [Security with SpEL](https://docs.spring.io/spring-security/site/docs/current/reference/html/el-access.html);
@@ -9,3 +9,7 @@ Will be included following tricks:
 ```sh
 $ mvn spring-boot:run
 ```
+### credentials
+ Test user with following credentials:
+ * email: test
+ * pass: test

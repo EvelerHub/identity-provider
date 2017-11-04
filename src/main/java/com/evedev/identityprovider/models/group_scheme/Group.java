@@ -1,6 +1,7 @@
 package com.evedev.identityprovider.models.group_scheme;
 
-import lombok.Data;
+import com.evedev.identityprovider.models.BaseEntity;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,25 +14,21 @@ import static javax.persistence.CascadeType.ALL;
  * @since 19.10.17
  */
 @Data
+@EqualsAndHashCode(callSuper = true, exclude={"users", "authorities"})
+@ToString(callSuper = true, exclude={"users", "authorities"})
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "groups")
-public class Group implements Serializable {
+public class Group extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 2994041127549278786L;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "name", nullable = false)
+    @NonNull
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(cascade = ALL)
-    @JoinTable(name="user_group",
-            joinColumns= @JoinColumn(name="group_id", referencedColumnName="id"),
-            inverseJoinColumns= @JoinColumn(name="user_id", referencedColumnName="id")
-    )
+    @ManyToMany(mappedBy = "groups")
     private Set<User> users;
 
     @OneToMany(mappedBy = "group")
