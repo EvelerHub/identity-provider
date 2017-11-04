@@ -1,8 +1,6 @@
 package com.evedev.identityprovider.models.acl_scheme;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,9 +10,7 @@ import java.math.BigInteger;
  * @author Alexander Eveler, alexander.eveler@gmail.com
  * @since 18.10.17
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name = "acl_class", uniqueConstraints = {@UniqueConstraint(name = "uk_acl_class", columnNames = {"class"})})
 public class AclClass implements Serializable {

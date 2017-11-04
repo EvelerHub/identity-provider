@@ -1,34 +1,34 @@
 package com.evedev.identityprovider.models;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.evedev.identityprovider.models.group_scheme.User;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author Alexander Eveler, alexander.eveler@gmail.com
  * @since 15.10.17
  */
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
-@Table(name = "grid")
-public class Grid implements Serializable {
+@Table(name = "posts")
+public class Post implements Serializable {
 
     private static final long serialVersionUID = -4773471009667199876L;
 
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "grid")
-    private List<User> users;
+    @Column(name = "text")
+    private String text;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 }
